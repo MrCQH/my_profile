@@ -132,3 +132,4 @@ export LD_LIBRARY_PATH=/usr/local/cuda-12.6/targets/x86_64-linux/lib:$LD_LIBRARY
 export HF_HUB_ENABLE_HF_TRANSFER=1
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
+export PATH=$PATH:/usr/local/go/bin
