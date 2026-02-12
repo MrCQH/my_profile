@@ -120,7 +120,11 @@ if ! shopt -oq posix; then
 fi
 export http_proxy="http://127.0.0.1:10808"
 export https_proxy="http://127.0.0.1:10808"
+
+alias ccc='cc'
 alias cc='claude'
+alias lg='lazygit'
+
 gsettings set org.gnome.desktop.sound event-sounds false
 gsettings set org.gnome.desktop.sound input-feedback-sounds false
 export PATH="$HOME/.local/bin:$PATH"
@@ -133,3 +137,8 @@ export HF_HUB_ENABLE_HF_TRANSFER=1
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
 export PATH=$PATH:/usr/local/go/bin
+# 终端设置环境变量
+export ANTHROPIC_BASE_URL=http://localhost:8080
+export ANTHROPIC_API_KEY=''  # 可以随便填，llama.cpp 不验证
+
+eval "$(fzf --bash)"
