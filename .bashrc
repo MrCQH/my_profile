@@ -142,3 +142,10 @@ export ANTHROPIC_BASE_URL=http://localhost:8080
 export ANTHROPIC_API_KEY=''  # 可以随便填，llama.cpp 不验证
 
 eval "$(fzf --bash)"
+
+export XMODIFIERS=@im=fcitx
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+
+export LANG=zh_CN.UTF-8
+export LC_ALL=zh_CN.UTF-8
