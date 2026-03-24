@@ -1,0 +1,26 @@
+gui:
+  language: 'en'
+customCommands:
+  - key: "p"
+    description: "Pull with strategy"
+    commandMenu:
+      - key: "p"
+        context: "localBranches"
+        command: "git pull"
+        description: "pull"
+      - key: "r"
+        context: "localBranches"
+        command: "git pull --rebase"
+        description: "pull --rebase"
+      - key: "m"
+        context: "localBranches"
+        command: "git pull --no-rebase"
+        description: "pull --no-rebase"
+      - key: "f"
+        context: "localBranches"
+        command: "git pull --ff-only"
+        description: "pull --ff-only"
+git:
+  log:
+    showGraph: always          # 默认就是 always，显示图
+    showWholeGraph: true       # 关键！显示所有分支（--all）
