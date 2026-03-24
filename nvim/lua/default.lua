@@ -5,10 +5,11 @@ opt.relativenumber = true
 opt.number = true
 
 -- 缩进
-opt.tabstop = 2
-opt.shiftwidth = 2
+opt.tabstop = 4
+opt.shiftwidth = 4
+opt.softtabstop = 4
 opt.expandtab = true
-opt.autoindent = true
+opt.undofile = true
 
 -- 防止包裹
 opt.wrap = false
@@ -34,3 +35,7 @@ opt.splitbelow = true
 opt.termguicolors = true
 -- 左侧多一列
 opt.signcolumn = "yes"
+
+opt.scrolloff = 0
+opt.sidescrolloff = 0
+opt.smoothscroll = false

@@ -22,5 +22,5 @@ customCommands:
         description: "pull --ff-only"
 git:
   log:
-    showGraph: always          # 默认就是 always，显示图
-    showWholeGraph: true       # 关键！显示所有分支（--all）
+    showGraph: always
+    showWholeGraph: true
