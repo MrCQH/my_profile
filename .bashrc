@@ -149,3 +149,6 @@ export QT_IM_MODULE=fcitx
 
 export LANG=zh_CN.UTF-8
 export LC_ALL=zh_CN.UTF-8
+
+# OpenClaw Completion
+source "/home/mrchen/.openclaw/completions/openclaw.bash"
