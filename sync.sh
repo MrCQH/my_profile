@@ -1,5 +1,4 @@
-cp ~/.bashrc .
+# cp ~/.bashrc .
 cp ~/.tmux.conf .
 cp ~/.vimrc .
-cp -r ~/.config/nvim .
-
+cp -r ~/.config/nvim ./.config
