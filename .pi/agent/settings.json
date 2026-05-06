@@ -1,0 +1,25 @@
+{
+    "lastChangelogVersion": "0.70.6",
+    "defaultProvider": "deepseek",
+    "defaultModel": "deepseek-v4-pro",
+    "theme": "dark",
+    "defaultThinkingLevel": "high",
+    "hideThinkingBlock": false,
+    "packages": [
+        "npm:pi-mcp-adapter@2.5.4",
+        "npm:pi-web-access@0.10.7",
+        "npm:pi-btw@0.3.8",
+        "npm:pi-rtk-optimizer@0.7.1",
+        "npm:@marckrenn/pi-sub-bar@1.5.0",
+        "npm:@tmustier/pi-usage-extension@0.3.1",
+        "npm:pi-command-history@0.1.2",
+        "npm:pi-caveman@1.0.5",
+        "npm:@geminixiang/pi-simplify@0.0.6",
+        "npm:@siddr/pi-prompt-thinking@0.1.6",
+        "npm:pi-fastboot@1.0.0",
+        "npm:pi-execution-time@0.1.3",
+        "npm:@e9n/pi-context@0.1.0",
+        "npm:pi-codex-image-gen@0.1.2",
+        "npm:pi-tps-monitor@1.0.0"
+    ]
+}
