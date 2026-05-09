@@ -6,20 +6,6 @@ return {
     },
   },
   {
-    "yetone/avante.nvim",
-    opts = {
-      provider = "vtrix",
-      providers = {
-        vtrix = {
-          __inherited_from = "openai",
-          endpoint = "https://cloud.vtrix.top/llm",
-          model = "claude-opus-4-6",
-          api_key_name = "AVANTE_OPENAI_API_KEY",
-        },
-      },
-    },
-  },
-  {
     "mfussenegger/nvim-lint",
     opts = {
       linters_by_ft = {

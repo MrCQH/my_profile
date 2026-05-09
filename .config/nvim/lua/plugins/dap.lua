@@ -2,7 +2,7 @@ return {
   {
     "jay-babu/mason-nvim-dap.nvim",
     opts = {
-      ensure_installed = { "codelldb" },
+      ensure_installed = {},
       automatic_installation = false,
     },
   },
@@ -14,10 +14,8 @@ return {
       "theHamsta/nvim-dap-virtual-text",
       "jay-babu/mason-nvim-dap.nvim",
       "leoluz/nvim-dap-go",
-      "julianolf/nvim-dap-lldb",
     },
     keys = {
-      -- F 键 (兼容 GDB 风格)
       {
         "<F5>",
         function()
@@ -57,36 +55,71 @@ return {
 
           dap.continue()
         end,
-        desc = "Run/Continue (GDB: r/c)",
+        desc = "Debug Continue",
       },
-      { "<F10>", function() require("dap").step_over() end, desc = "Step Over (GDB: n)" },
-      { "<F11>", function() require("dap").step_into() end, desc = "Step Into (GDB: s)" },
-      { "<F12>", function() require("dap").step_out() end, desc = "Step Out (GDB: fin)" },
-      -- GDB 风格 <leader>d + 单字母
-      { "<leader>dr", function() require("dap").continue() end, desc = "Run (GDB: r)" },
-      { "<leader>dc", function() require("dap").continue() end, desc = "Continue (GDB: c)" },
-      { "<leader>dn", function() require("dap").step_over() end, desc = "Next (GDB: n)" },
-      { "<leader>ds", function() require("dap").step_into() end, desc = "Step (GDB: s)" },
-      { "<leader>df", function() require("dap").step_out() end, desc = "Finish (GDB: fin)" },
-      { "<leader>db", function() require("dap").toggle_breakpoint() end, desc = "Break (GDB: b)" },
+      {
+        "<F10>",
+        function()
+          require("dap").step_over()
+        end,
+        desc = "Debug Step Over",
+      },
+      {
+        "<F11>",
+        function()
+          require("dap").step_into()
+        end,
+        desc = "Debug Step Into",
+      },
+      {
+        "<F12>",
+        function()
+          require("dap").step_out()
+        end,
+        desc = "Debug Step Out",
+      },
+      {
+        "<leader>db",
+        function()
+          require("dap").toggle_breakpoint()
+        end,
+        desc = "Debug Toggle Breakpoint",
+      },
       {
         "<leader>dB",
         function()
-          require("dap").set_breakpoint(vim.fn.input("Break condition: "))
+          require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
         end,
-        desc = "Break if (GDB: condition)",
+        desc = "Debug Conditional Breakpoint",
       },
-      { "<leader>dC", function() require("dap").clear_breakpoints() end, desc = "Clear breaks (GDB: delete)" },
       {
-        "<leader>dp",
-        function() require("dapui").eval() end,
-        desc = "Print (GDB: p)",
-        mode = { "n", "v" },
+        "<leader>dr",
+        function()
+          require("dap").repl.open()
+        end,
+        desc = "Debug REPL",
       },
-      { "<leader>dq", function() require("dap").terminate() end, desc = "Quit (GDB: q)" },
-      { "<leader>dl", function() require("dap").run_last() end, desc = "Rerun (GDB: run)" },
-      { "<leader>dt", function() require("dap").repl.open() end, desc = "REPL/Terminal" },
-      { "<leader>du", function() require("dapui").toggle() end, desc = "UI Toggle" },
+      {
+        "<leader>du",
+        function()
+          require("dapui").toggle()
+        end,
+        desc = "Debug UI Toggle",
+      },
+      {
+        "<leader>dl",
+        function()
+          require("dap").run_last()
+        end,
+        desc = "Debug Run Last",
+      },
+      {
+        "<leader>dc",
+        function()
+          require("dap").clear_breakpoints()
+        end,
+        desc = "Debug Clear Breakpoints",
+      },
     },
     config = function()
       local dap = require("dap")
@@ -143,8 +176,6 @@ return {
           args = {},
         },
       })
-
-      require("dap-lldb").setup()
     end,
   },
 }
