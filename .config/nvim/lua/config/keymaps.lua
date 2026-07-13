@@ -16,6 +16,20 @@ end, { desc = "Copy relative path" })
 vim.keymap.set("n", "<leader>sg", LazyVim.pick("live_grep", { root = false }), { desc = "Grep (cwd)" })
 
 
+-- Move line up/down with J/K
+vim.keymap.set("n", "J", ":m .+1<CR>==", { silent = true, desc = "Move line down" })
+vim.keymap.set("n", "K", ":m .-2<CR>==", { silent = true, desc = "Move line up" })
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { silent = true, desc = "Move selected lines down" })
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { silent = true, desc = "Move selected lines up" })
+
+-- gh: LSP hover / keyword help (non-LSP buffer fallback)
+vim.keymap.set("n", "gh", function()
+  local ok, _ = pcall(vim.lsp.buf.hover)
+  if not ok then
+    vim.cmd("normal! K")
+  end
+end, { desc = "Show help / LSP hover" })
+
 -- Linewise paste: keep cursor at the same column
 vim.keymap.set("n", "p", function()
   local col = vim.fn.col(".")
