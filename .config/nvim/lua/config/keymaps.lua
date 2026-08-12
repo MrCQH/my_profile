@@ -15,6 +15,19 @@ end, { desc = "Copy relative path" })
 
 vim.keymap.set("n", "<leader>sg", LazyVim.pick("live_grep", { root = false }), { desc = "Grep (cwd)" })
 
+-- Open current file in browser (macOS)
+vim.keymap.set("n", "<leader>oh", function()
+  local path = vim.fn.expand("%:p")
+  if vim.fn.has("mac") == 1 then
+    vim.fn.jobstart({ "open", path })
+  elseif vim.fn.has("unix") == 1 then
+    vim.fn.jobstart({ "xdg-open", path })
+  else
+    vim.fn.jobstart({ "cmd", "/c", "start", path })
+  end
+  vim.notify("Opening: " .. path)
+end, { desc = "Open file in browser" })
+
 
 -- Move line up/down with J/K
 vim.keymap.set("n", "J", ":m .+1<CR>==", { silent = true, desc = "Move line down" })

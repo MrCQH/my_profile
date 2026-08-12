@@ -20,7 +20,10 @@ return {
                 unusedwrite = false,
                 fieldalignment = false,
               },
-              -- 补全优化
+              -- 补全优化: 只补全括号，不自动填写参数
+              completeFunctionCalls = true,
+              usePlaceholders = false,
+              --
               completionBudget = "200ms",
               -- 关闭不常用的 codelens 减少开销
               codelenses = {

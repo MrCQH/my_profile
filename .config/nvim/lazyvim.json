@@ -2,6 +2,7 @@
   "extras": [
     "lazyvim.plugins.extras.ai.claudecode",
     "lazyvim.plugins.extras.lang.clangd",
+    "lazyvim.plugins.extras.lang.docker",
     "lazyvim.plugins.extras.lang.dotnet",
     "lazyvim.plugins.extras.lang.ember",
     "lazyvim.plugins.extras.lang.go",
@@ -9,7 +10,8 @@
     "lazyvim.plugins.extras.lang.markdown",
     "lazyvim.plugins.extras.lang.python",
     "lazyvim.plugins.extras.lang.toml",
-    "lazyvim.plugins.extras.lang.typescript"
+    "lazyvim.plugins.extras.lang.typescript",
+    "lazyvim.plugins.extras.lang.yaml"
   ],
   "install_version": 8,
   "news": {
