@@ -1,4 +1,4 @@
-!#/bin/sh
+#!/bin/sh
 
 cp -r .config/nvim ~/.config/
 cp .pi/agent/settings.json ~/.pi/agent/
