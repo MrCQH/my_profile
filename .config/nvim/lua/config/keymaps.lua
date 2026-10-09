@@ -28,7 +28,6 @@ vim.keymap.set("n", "<leader>oh", function()
   vim.notify("Opening: " .. path)
 end, { desc = "Open file in browser" })
 
-
 -- Move line up/down with J/K
 vim.keymap.set("n", "J", ":m .+1<CR>==", { silent = true, desc = "Move line down" })
 vim.keymap.set("n", "K", ":m .-2<CR>==", { silent = true, desc = "Move line up" })
@@ -55,3 +54,6 @@ vim.keymap.set("n", "P", function()
   vim.cmd("normal! P")
   vim.fn.cursor(vim.fn.line("."), col)
 end, { noremap = true, desc = "Paste above, keep column" })
+
+-- 将选中的旧文本删除到黑洞寄存器
+vim.keymap.set("x", "p", '"_dP', { noremap = true })
