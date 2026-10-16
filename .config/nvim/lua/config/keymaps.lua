@@ -3,13 +3,19 @@
 -- Add any additional keymaps here
 vim.keymap.set("n", "<leader>cp", function()
   local path = vim.fn.expand("%:p")
-  vim.fn.setreg("+", path)
+  local pos = vim.api.nvim_win_get_cursor(0)
+  local line = pos[1]
+  local col = pos[2]
+  vim.fn.setreg("+", path .. ":" .. line .. ":" .. col)
   vim.notify("Copied: " .. path)
 end, { desc = "Copy absolute path" })
 
 vim.keymap.set("n", "<leader>cP", function()
   local path = vim.fn.expand("%")
-  vim.fn.setreg("+", path)
+  local pos = vim.api.nvim_win_get_cursor(0)
+  local line = pos[1]
+  local col = pos[2]
+  vim.fn.setreg("+", path .. ":" .. line .. ":" .. col)
   vim.notify("Copied: " .. path)
 end, { desc = "Copy relative path" })
 
