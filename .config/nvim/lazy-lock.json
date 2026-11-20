@@ -1,4 +1,5 @@
 {
+  "AssemblyForNeovim": { "branch": "main", "commit": "58a471ec97fb5987eca2b955fd2cba8693a414f6" },
   "LazyVim": { "branch": "main", "commit": "999700997f72227187d49d8b92667183dc7fc809" },
   "SchemaStore.nvim": { "branch": "main", "commit": "b463a5e79f84fd9ca22dd47f41754387d8fe7af4" },
   "blink.cmp": { "branch": "main", "commit": "78336bc89ee5365633bcf754d93df01678b5c08f" },
