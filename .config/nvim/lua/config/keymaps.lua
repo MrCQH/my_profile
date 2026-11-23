@@ -63,3 +63,41 @@ end, { noremap = true, desc = "Paste above, keep column" })
 
 -- 将选中的旧文本删除到黑洞寄存器
 vim.keymap.set("x", "p", '"_dP', { noremap = true })
+
+-- Pause and resume LSP clients for the current buffer.
+local paused_lsp = {}
+vim.api.nvim_create_autocmd("BufWipeout", {
+  callback = function(ev)
+    paused_lsp[ev.buf] = nil
+  end,
+})
+
+vim.keymap.set("n", "<leader>cD", function()
+  local buf = vim.api.nvim_get_current_buf()
+  if paused_lsp[buf] then
+    return vim.notify("LSP is already paused for this buffer")
+  end
+  local clients = vim.lsp.get_clients({ bufnr = buf })
+  if #clients == 0 then
+    return vim.notify("No LSP clients attached to this buffer")
+  end
+  paused_lsp[buf] = {}
+  for _, client in ipairs(clients) do
+    table.insert(paused_lsp[buf], client.config)
+    vim.lsp.buf_detach_client(buf, client.id)
+  end
+  vim.notify("Paused LSP for this buffer")
+end, { desc = "Pause LSP for buffer" })
+
+vim.keymap.set("n", "<leader>cS", function()
+  local buf = vim.api.nvim_get_current_buf()
+  local configs = paused_lsp[buf]
+  if not configs then
+    return vim.notify("No paused LSP clients for this buffer")
+  end
+  paused_lsp[buf] = nil
+  for _, config in ipairs(configs) do
+    vim.lsp.start(config, { bufnr = buf })
+  end
+  vim.notify("Resumed LSP for this buffer")
+end, { desc = "Resume LSP for buffer" })
